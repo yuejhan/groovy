@@ -1,0 +1,9 @@
+
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+dependencies{
+    compile project(":repository")
+}
+

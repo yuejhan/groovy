@@ -1,0 +1,28 @@
+// 使用idea创建了一个gradle项目之后，可以看到build.gradle和setting.gradle的文件
+
+build.gradle
+配置的是模块或项目的构建信息
+setting.gradle
+配置的是多模块项目的模块信息
+
+
+构建脚本 包括 项目和任务
+
+自定义任务
+def createDir = {
+    path ->
+        File file = new File(path);
+        if(!file.exists()){
+            file.mkdirs();
+        }
+
+}
+task makeJavaDir{
+    def path = ['src/main/java','src/main/resources','src/test/java','src/test/resources'];
+    doFirst {
+        path.forEach(createDir);
+    }
+}
+
+
+依赖管理
